@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-1. MRU caching
+4. MRU caching
 '''
 from base_caching import BaseCaching
 
@@ -15,7 +15,7 @@ class MRUCache(BaseCaching):
         Initialization of the MRU cache.
         """
         super().__init__()
-        self.order = []  # List to maintain access order for MRU eviction
+        self.order = []
 
     def put(self, key, item):
         """
@@ -28,7 +28,8 @@ class MRUCache(BaseCaching):
         if key is not None and item is not None:
             if key in self.cache_data:
                 self.order.remove(key)
-                self.order.insert(0, key)  # Move to the beginning for MRU
+                # Move to the beginning for MRU
+                self.order.insert(0, key)
             elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 while True:
                     discarded_key = self.order.pop()
@@ -40,6 +41,7 @@ class MRUCache(BaseCaching):
             self.cache_data[key] = item
             # Insert at the beginning for MRU
             self.order.insert(0, key)
+        return
 
     def get(self, key):
         """
