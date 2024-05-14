@@ -3,8 +3,7 @@
 Basic Babel setup
 '''
 from flask import Flask, render_template, request, g
-from flask_babel import Babel, format_datetime
-import pytz
+from flask_babel import Babel
 from typing import Union, Dict
 
 
@@ -86,7 +85,8 @@ def basic() -> str:
     '''
     basic route
     '''
-    return render_template('7-index.html')
+    g.time = format_datetime()
+    return render_template('6-index.html')
 
 
 if __name__ == '__main__':
