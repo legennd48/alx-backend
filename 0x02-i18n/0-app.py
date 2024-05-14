@@ -8,12 +8,14 @@ from flask import Flask, render_template
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
-@app.route("/")
-def basic()-> str:
+
+@app.route('/')
+def basic() -> str:
     '''
     Basic app that renders template
     '''
     return render_template("0-index.html")
+
 
 if __name__ == "__main__":
     app.run(host='localhost', port=5000)
