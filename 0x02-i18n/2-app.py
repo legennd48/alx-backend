@@ -2,7 +2,7 @@
 '''
 1. Basic Babel setup
 '''
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
 
@@ -21,13 +21,14 @@ app.config.from_object(Config)
 app.url_map.strict_slashes = False
 babel = Babel(app)
 
+
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     '''
     uses request.accept_languages to determine
     the best match for supported languages
     '''
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
 @app.route('/')
