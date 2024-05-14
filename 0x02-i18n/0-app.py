@@ -11,13 +11,9 @@ app.url_map.strict_slashes = False
 @app.route("/")
 def basic()-> str:
     '''
-    Basic app that displays template messages
-    under 'title' annd 'h1' tags 
+    Basic app that renders template
     '''
-    tittle = "Welcome to Holberton"
-    message = "Hello world"
-
-    return render_template("0-index.html", tittle=tittle, message=message)
+    return render_template("0-index.html")
 
 if __name__ == "__main__":
     app.run(host='localhost', port=5000)
