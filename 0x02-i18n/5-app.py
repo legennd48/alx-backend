@@ -4,6 +4,7 @@ Basic Babel setup
 '''
 from flask import Flask, render_template, request
 from flask_babel import Babel
+from typing import Union
 
 
 class Config():
