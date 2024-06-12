@@ -10,5 +10,4 @@ client.on('error', (err) => {
   console.error('Redis client not connected to the server: ', err.message);
 });
 
-
 export default client;
